@@ -19,13 +19,4 @@ public class Application {
     public static void main(String[] args) {
         Micronaut.run(Application.class, args);
     }
-    @Singleton
-    static class ObjectMapperBeanEventListener implements BeanCreatedEventListener<ObjectMapper> {
-        @Override
-        public ObjectMapper onCreated(BeanCreatedEvent<ObjectMapper>  event) {
-            final ObjectMapper mapper = event.getBean();
-            mapper.findAndRegisterModules();
-            return mapper;
-        }
-    }
 }
